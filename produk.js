@@ -89,10 +89,10 @@ const daftarProduk = [
     },
     {
         id: "prod-11",
-        nama: "Ice Cream Hermit Crab",
-        harga: 2000,
-        stok: 0,
-        gambar: "gambar/Ice Cream Hermit Crab.png",
+        nama: "Tegu N",
+        harga: 4000,
+        stok: 1,
+        gambar: "gambar/Tegu.png",
         placeholder: "masukkan user roblox"
     },
     {
@@ -180,7 +180,7 @@ const daftarProduk = [
         nama: "mole N",
         harga: 4000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~4.png",
+        gambar: "gambar/mole.png",
         placeholder: "masukkan user Roblox"
     },
     {
@@ -188,7 +188,7 @@ const daftarProduk = [
         nama: "angelfish N",
         harga:5000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~6.png",
+        gambar: "gambar/angelfish.png",
         placeholder: "masukkan user Roblox"
     },
     {
@@ -196,7 +196,7 @@ const daftarProduk = [
         nama: "garden snake N",
         harga: 3000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~7.png",
+        gambar: "gambar/garden snake.png",
         placeholder: "masukkan user Roblox"
     },
     {
@@ -204,7 +204,7 @@ const daftarProduk = [
         nama: "frankenfeline N",
         harga: 4000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~8.png",
+        gambar: "gambar/frankenfeline.png",
         placeholder: "masukkan user Roblox"
     },
     {
@@ -212,7 +212,7 @@ const daftarProduk = [
         nama: "striped eggy N",
         harga: 7000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~9.png",
+        gambar: "gambar/striped eggy.png",
         placeholder: "masukkan user Roblox"
     },
     {
@@ -220,7 +220,79 @@ const daftarProduk = [
         nama: "cat hood",
         harga: 2000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~11.png",
+        gambar: "gambar/cat hood.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-28",
+        nama: "Cockroach N",
+        harga: 3000,
+        stok: 1,
+        gambar: "gambar/Cockroach.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-29",
+        nama: "Purrowl",
+        harga: 3000,
+        stok: 1,
+        gambar: "gambar/Purrowl.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-30",
+        nama: "English Sheepdog",
+        harga: 2500,
+        stok: 1,
+        gambar: "gambar/English Sheepdog.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-31",
+        nama: "Red Panda",
+        harga: 1000,
+        stok: 1,
+        gambar: "gambar/Red Panda.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-32",
+        nama: "Starfish",
+        harga: 2000,
+        stok: 4,
+        gambar: "gambar/Starfish.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-33",
+        nama: "Clover Cow",
+        harga: 5000,
+        stok: 1,
+        gambar: "gambar/Clover Cow.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-34",
+        nama: "Wolpertinger",
+        harga: 1000,
+        stok: 2,
+        gambar: "gambar/Wolpertinger.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-35",
+        nama: "Brachiosaurus",
+        harga: 3000,
+        stok: 6,
+        gambar: "gambar/Brachiosaurus.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-36",
+        nama: "Mr. Whiskerpips",
+        harga: 12000,
+        stok: 1,
+        gambar: "gambar/Mr. Whiskerpips.png",
         placeholder: "masukkan user Roblox"
     }
 ];
