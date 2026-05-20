@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko pets Game Online</title>
+    <style>
+        .grid-produk {
+            display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; padding: 10px;
+        }
+        .kartu-produk { 
+            background: #1a1a1e; padding: 15px; width: 220px; border-radius: 10px; border: 1px solid #2e2e33; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box;
+        }
+        .foto-game { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
+        .nama-game { font-size: 16px; margin: 10px 0 5px 0; font-weight: bold; }
+        .harga-game { color: #a855f7; font-weight: bold; margin: 0 0 10px 0; }
+        
+        /* ====================================================
+           KODE TAMBAHAN: KHUSUS UNTUK TAMPILAN LAYAR HP 
+           ==================================================== */
+        @media screen and (max-width: 600px) {
+            .grid-produk {
+                gap: 10px; /* Jarak antar kotak di HP dipersempit */
+                justify-content: center;
+                padding: 5px;
+            }
+            .kartu-produk { 
+                width: calc(50% - 10px); /* Ukuran kotak otomatis dibagi 2 pas di HP */
+                padding: 10px; /* Jarak tulisan di dalam kotak dikit dikecilkan */
+            }
+            .foto-game { 
+                height: 100px; /* Foto pet sedikit dikecilkan biar tidak kemakan tinggi */
+            }
+            .nama-game { font-size: 14px; } /* Tulisan nama pet disesuaikan */
+            .harga-game { font-size: 14px; }
+            input, .btn-tunggal { font-size: 12px; padding: 8px 5px; } /* Input & tombol dikecilkan sedikit */
+        }
+        /* ==================================================== */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #121214; color: white; margin: 0; padding: 0; padding-bottom: 50px;
+        }
+        .header-toko {
+            background: #7c3aed; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .header-toko h1 { margin: 0; font-size: 28px; }
+        .header-toko p { margin: 5px 0 0 0; opacity: 0.8; }
+        
+        /* GAYA BANNER PROMO & INFORMASI TOKO */
+        .banner-promo {
+            background: linear-gradient(45deg, #6d28d9, #4c1d95); 
+            margin: 20px auto; 
+            max-width: 1000px; 
+            padding: 30px 20px; 
+            border-radius: 12px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .banner-promo h2 { margin: 0 0 10px 0; font-size: 24px; }
+        .banner-promo p { margin: 0; font-size: 16px; opacity: 0.9; }
+        
+        .kotak-info-toko {
+            background: rgba(0,0,0,0.5); 
+            padding: 15px; 
+            border-radius: 8px; 
+            border: 1px solid #7c3aed; 
+            max-width: 700px; 
+            margin: 15px auto 0 auto; 
+            text-align: left; 
+            font-size: 14px; 
+            line-height: 1.6;
+        }
+        /* GAYA UNTUK KOLOM PENCARIAN */
+        .wadah-pencarian {
+            max-width: 1000px; margin: 30px auto 10px auto; padding: 0 10px; box-sizing: border-box;
+        }
+        .input-cari {
+            width: 100%; padding: 12px 20px; font-size: 16px; border-radius: 30px; border: 2px solid #2e2e33; background: #1a1a1e; color: white; box-sizing: border-box; text-align: left; transition: all 0.3s ease;
+        }
+        .input-cari:focus {
+            border-color: #7c3aed; outline: none; box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+        }
+
+        .judul-kategori {
+            text-align: left; max-width: 1000px; margin: 30px auto 10px auto; padding-left: 10px; border-left: 5px solid #7c3aed; font-size: 20px;
+        }
+        .stok-game { font-size: 13px; color: #a1a1aa; margin-bottom: 10px; }
+        .stok-habis { color: #ef4444; font-weight: bold; }
+        input {
+            padding: 8px; width: 85%; margin-bottom: 8px; border-radius: 6px; border: 1px solid #444; background: #26262b; color: white; text-align: center;
+        }
+        .kolom-qty { display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 12px; font-size: 14px; }
+        .input-qty { width: 50px; margin-bottom: 0; padding: 5px; }
+        
+        /* TOMBOL BELI TUNGGAL DI KARTU PRODUK */
+        .btn-tunggal { 
+            background: #7c3aed; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 6px; width: 95%; font-size: 14px;
+        }
+        .btn-tunggal:hover { background: #6d28d9; }
+        button:disabled { background: #4b5563 !important; color: #9ca3af !important; cursor: not-allowed; }
+        
+        /* KOTAK POP-UP PILIHAN (MELAYANG DI TENGAH LAYAR) */
+        .overlay-popup {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 9999;
+        }
+        .kotak-popup {
+            background: #1a1a1e; padding: 25px; border-radius: 12px; border: 1px solid #2e2e33; text-align: center; width: 310px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .judul-popup { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+        .btn-pilihan {
+            display: block; width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; color: white;
+        }
+        /* Tombol Pembayaran */
+        .btn-popup-qris { background: #22c55e; }
+        .btn-popup-qris:hover { background: #16a34a; }
+        .btn-popup-rekber { background: #eab308; color: #000; }
+        .btn-popup-rekber:hover { background: #ca8a04; }
+        /* Tombol Sosmed */
+        .btn-popup-tele { background: #0284c7; }
+        .btn-popup-tele:hover { background: #0369a1; }
+        .btn-popup-ig { background: #db2777; }
+        .btn-popup-ig:hover { background: #be185d; }
+        
+        .btn-popup-batal { background: #4b5563; font-size: 12px; padding: 8px; margin-top: 15px; opacity: 0.7; }
+        .btn-popup-batal:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="header-toko">
+        <h1>pets shop adoptme</h1>
+        <p>Tempat trade Game Terpercaya</p>
+    </div>
+
+    <div class="banner-promo">
+        <h2>selamat datang!</h2>
+        <p>pets lucu adoptme yang bisa kalian dapatkan di toko kami</p>
+        
+        <div class="kotak-info-toko">
+            - Toko dikelola mandiri oleh Admin. Jika lambat merespon, artinya Admin sedang offline/sibuk. Pesananmu PASTI PROSES saat Admin online kembali! 🙏<br>
+            - Silakan isi user Roblox kamu, klik tombol "Beli", lalu pilih mau transaksi lewat "Telegram" atau "Instagram".<br>
+            - di jamin aman terdapat dua metode pembayaran rekber/TF QRIS, jika kalian merasa takut pilih saja rekber.
+        </div>
+    </div>
+
+    <div class="wadah-pencarian">
+        <input type="text" id="kolom-cari" class="input-cari" placeholder="🔍 Cari pet favoritmu di sini..." onkeyup="filterProduk()">
+    </div>
+
+    <div class="judul-kategori">pets & item</div>
+    
+    <div class="grid-produk" id="tempat-produk"></div>
+
+    <div id="popup-pembayaran" class="overlay-popup">
+        <div class="kotak-popup">
+            <div class="judul-popup">💳 Pilih Metode Pembayaran</div>
+            <p style="font-size: 13px; color: #a1a1aa; margin-top: -5px; margin-bottom: 20px;">Toko kami 100% amanah. Silakan pilih metode yang membuat kamu paling nyaman:</p>
+            <button class="btn-pilihan btn-popup-qris" onclick="pilihMetodeBayar('TF LANGSUNG (QRIS)')">⚡ Transfer QRIS (Proses Cepat)</button>
+            <button class="btn-pilihan btn-popup-rekber" onclick="pilihMetodeBayar('REKBER / MIDDLEMAN')">🤝 Pakai Rekber (Lebih Aman)</button>
+            <button class="btn-popup-batal btn-pilihan" onclick="tutupSemuaPopup()">Batal</button>
+        </div>
+    </div>
+
+    <div id="popup-sosmed" class="overlay-popup">
+        <div class="kotak-popup">
+            <div class="judul-popup">📱 Hubungi Admin Toko</div>
+            <p style="font-size: 13px; color: #a1a1aa; margin-top: -5px; margin-bottom: 20px;">Kirimkan nota otomatis orderanmu ke salah satu kontak Admin di bawah ini:</p>
+            <button class="btn-pilihan btn-popup-tele" onclick="alihkanKeSosmed('telegram')">📱 Kirim via Telegram</button>
+            <button class="btn-pilihan btn-popup-ig" onclick="alihkanKeSosmed('instagram')">📸 Kirim via Instagram</button>
+            <button class="btn-popup-batal btn-pilihan" onclick="tutupSemuaPopup()">Batal</button>
+        </div>
+    </div>
+
+    <script src="produk.js"></script>
+
+    <script>
+        let usernameTelegramToko = "juli111uwu"; 
+        let usernameInstagramToko = "meshoppetadopt"; 
+
+        // Penampung data orderan sementara
+        let orderData = {
+            nama: "",
+            jumlah: 0,
+            total: 0,
+            userRoblox: "",
+            metodeBayar: ""
+        };
+        let teksNotaFinal = null;
+
+        const kontainerProduk = document.getElementById('tempat-produk');
+        
+        function renderTampilanProduk(listProduk) {
+            kontainerProduk.innerHTML = ""; 
+            
+            if (listProduk.length === 0) {
+                kontainerProduk.innerHTML = `<p style="text-align:center; width:100%; color:#a1a1aa; padding:20px;">Pet tidak ditemukan... 😢</p>`;
+                return;
+            }
+
+            listProduk.forEach(item => {
+                let elemenProduk = document.createElement('div');
+                elemenProduk.className = 'kartu-produk';
+
+                if (item.stok > 0) {
+                    elemenProduk.innerHTML = `
+                        <img src="${item.gambar}" class="foto-game">
+                        <div class="nama-game">${item.nama}</div>
+                        <div class="harga-game">Rp ${item.harga.toLocaleString('id-ID')}</div>
+                        <div class="stok-game">Tersisa: ${item.stok} Pcs</div>
+                        <input type="text" id="${item.id}-user" placeholder="${item.placeholder}">
+                        <div class="kolom-qty">
+                            <span>Jumlah:</span>
+                            <input type="number" id="${item.id}-qty" class="input-qty" value="1" min="1" max="${item.stok}">
+                        </div>
+                        <button class="btn-tunggal" onclick="prosesBeli('${item.id}', '${item.nama}', ${item.harga}, ${item.stok})">Beli</button>
+                    `;
+                } else {
+                    elemenProduk.innerHTML = `
+                        <img src="${item.gambar}" class="foto-game">
+                        <div class="nama-game">${item.nama}</div>
+                        <div class="harga-game">Rp ${item.harga.toLocaleString('id-ID')}</div>
+                        <div class="stok-game stok-habis">STOK HABIS</div>
+                        <input type="text" placeholder="${item.placeholder}" disabled>
+                        <div class="kolom-qty">
+                            <span>Jumlah:</span>
+                            <input type="number" class="input-qty" value="0" disabled>
+                        </div>
+                        <button class="btn-tunggal" disabled>STOK HABIS</button>
+                    `;
+                }
+                kontainerProduk.appendChild(elemenProduk);
+            });
+        }
+
+        renderTampilanProduk(daftarProduk);
+
+        function filterProduk() {
+            let kataKunci = document.getElementById('kolom-cari').value.toLowerCase();
+            let hasilPencarian = daftarProduk.filter(item => {
+                return item.nama.toLowerCase().includes(kataKunci);
+            });
+            renderTampilanProduk(hasilPencarian); 
+        }
+
+        // TAHAP 1: Mengambil data input pembeli dan memunculkan pop-up pembayaran
+        function prosesBeli(idBarang, namaProduk, hargaSatuan, batasStok) {
+            let idGame = document.getElementById(`${idBarang}-user`).value;
+            let jumlahBeli = parseInt(document.getElementById(`${idBarang}-qty`).value);
+
+            if (idGame === "") {
+                alert("Mohon diisi Username Roblox kamu dulu ya!");
+                return;
+            }
+
+            if (isNaN(jumlahBeli) || jumlahBeli < 1) {
+                alert("Jumlah pembelian minimal 1 pcs!");
+                return;
+            }
+
+            if (jumlahBeli > batasStok) {
+                alert(`Maaf, stok tidak mencukupi! Maksimal pembelian adalah ${batasStok} pcs.`);
+                return;
+            }
+
+            // Simpan data ke objek sementara
+            orderData.nama = namaProduk;
+            orderData.jumlah = jumlahBeli;
+            orderData.total = hargaSatuan * jumlahBeli;
+            orderData.userRoblox = idGame;
+
+            // Munculkan Pop-up pilihan pembayaran pertama
+            document.getElementById('popup-pembayaran').style.display = 'flex';
+        }
+
+        // TAHAP 2: Pembeli memilih metode bayar, lalu kita kunci datanya dan buka pop-up sosmed
+        function pilihMetodeBayar(metode) {
+            orderData.metodeBayar = metode;
+            
+            // Rakit teks nota pesanan final otomatis
+            teksNotaFinal = `Halo Kak! Saya mau order di web jualanmu 👋\n\n` +
+                            `📦 Produk: ${orderData.nama}\n` +
+                            `🔢 Jumlah: ${orderData.jumlah} Pcs\n` +
+                            `💰 Total Harga: Rp ${orderData.total.toLocaleString('id-ID')}\n` +
+                            `👤 User Roblox: ${orderData.userRoblox}\n` +
+                            `💳 Metode Bayar: ${orderData.metodeBayar}\n\n` +
+                            `Mohon segera diproses ya Admin, terima kasih!`;
+
+            // Tutup pop-up pembayaran, langsung buka pop-up sosmed admin
+            document.getElementById('popup-pembayaran').style.display = 'none';
+            document.getElementById('popup-sosmed').style.display = 'flex';
+        }
+
+        // TAHAP 3: Pengalihan sosmed akhir
+        function alihkanKeSosmed(metode) {
+            if (!teksNotaFinal) return;
+
+            if (metode === 'telegram') {
+                let pesanFormatUrl = encodeURIComponent(teksNotaFinal);
+                let linkTelegramToko = `https://t.me/${usernameTelegramToko}?text=${pesanFormatUrl}`;
+                window.open(linkTelegramToko, '_blank');
+                tutupSemuaPopup();
+
+            } else if (metode === 'instagram') {
+                navigator.clipboard.writeText(teksNotaFinal).then(() => {
+                    alert("Format orderan BERHASIL DISALIN!\n\nNanti di DM Instagram, kamu tinggal klik tahan lalu pilih 'TEMPEL / PASTE' ya.");
+                    let linkInstagramToko = `https://ig.me/m/${usernameInstagramToko}`;
+                    window.open(linkInstagramToko, '_blank');
+                    tutupSemuaPopup();
+                }).catch(err => {
+                    alert("Gagal menyalin otomatis. Silakan hubungi IG: @" + usernameInstagramToko);
+                });
+            }
+        }
+
+        function tutupSemuaPopup() {
+            document.getElementById('popup-pembayaran').style.display = 'none';
+            document.getElementById('popup-sosmed').style.display = 'none';
+            teksNotaFinal = null;
+        }
+    </script>
+</body>
+</html>
