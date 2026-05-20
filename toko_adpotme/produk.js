@@ -175,4 +175,12 @@ const daftarProduk = [
         gambar: "gambar/Canine Cruiser.png",
         placeholder: "masukkan user roblox"
     },
+    {
+        id: "prod-22",
+        nama: "mole N",
+        harga: 4000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~4.png",
+        placeholder: "masukkan user Roblox"
+    }
 ];
