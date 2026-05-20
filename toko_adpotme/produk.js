@@ -204,7 +204,7 @@ const daftarProduk = [
         nama: "frankenfeline N",
         harga: 4000,
         stok: 1,
-        gambar: "gambar/Screenshot_20260518-114217~11.png",
+        gambar: "gambar/Screenshot_20260518-114217~8.png",
         placeholder: "masukkan user Roblox"
     },
     {
