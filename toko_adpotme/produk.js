@@ -5,7 +5,7 @@ const daftarProduk = [
         harga: 7000,
         stok: 1,
         gambar: "gambar/mochi_meow.png",
-        placeholder: "Masukkan username roblox"
+        placeholder: "Masukkan user roblox"
     },
     {
         id: "prod-2",
@@ -13,7 +13,7 @@ const daftarProduk = [
         harga: 4000,
         stok: 1,
         gambar: "gambar/blue_jay.png",
-        placeholder: "Masukkan username roblox"
+        placeholder: "Masukkan user roblox"
     },
     {
         id: "prod-3",
@@ -21,7 +21,7 @@ const daftarProduk = [
         harga: 15000,
         stok: 1,
         gambar: "gambar/blue_whale.png",
-        placeholder: "Masukkan username roblox"
+        placeholder: "Masukkan user roblox"
     },
     {
         id: "prod-4",
@@ -29,7 +29,7 @@ const daftarProduk = [
         harga: 10000,
         stok: 1,
         gambar: "gambar/cold_cube.png",
-        placeholder: "Masukkan username roblox"
+        placeholder: "Masukkan user roblox"
     },
     {
         id: "prod-4",
@@ -37,7 +37,7 @@ const daftarProduk = [
         harga: 10000,
         stok: 1,
         gambar: "gambar/scarecrow_horse.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-5",
@@ -45,7 +45,7 @@ const daftarProduk = [
         harga: 4000,
         stok: 1,
         gambar: "gambar/tree_frog.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-6",
@@ -53,7 +53,7 @@ const daftarProduk = [
         harga: 7000,
         stok: 1,
         gambar: "gambar/Velociraptor.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-7",
@@ -61,7 +61,7 @@ const daftarProduk = [
         harga: 8000,
         stok: 1,
         gambar: "gambar/pangolin.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-8",
@@ -69,7 +69,7 @@ const daftarProduk = [
         harga: 7000,
         stok: 1,
         gambar: "gambar/ankylosaurus.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-9",
@@ -77,7 +77,7 @@ const daftarProduk = [
         harga: 7000,
         stok: 1,
         gambar: "gambar/ocelot.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-10",
@@ -85,7 +85,7 @@ const daftarProduk = [
         harga: 1000,
         stok: 1,
         gambar: "gambar/Castle Hermit Crab.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-11",
@@ -93,7 +93,7 @@ const daftarProduk = [
         harga: 2000,
         stok: 0,
         gambar: "gambar/Ice Cream Hermit Crab.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-12",
@@ -101,7 +101,7 @@ const daftarProduk = [
         harga: 5000,
         stok: 1,
         gambar: "gambar/Banded Palm Civet.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-13",
@@ -109,7 +109,7 @@ const daftarProduk = [
         harga: 5000,
         stok: 1,
         gambar: "gambar/Eel.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-14",
@@ -117,7 +117,7 @@ const daftarProduk = [
         harga: 10000,
         stok: 1,
         gambar: "gambar/Fossa.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-15",
@@ -125,7 +125,7 @@ const daftarProduk = [
         harga: 12000,
         stok: 1,
         gambar: "gambar/Jumping Spider.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-16",
@@ -133,7 +133,7 @@ const daftarProduk = [
         harga: 5000,
         stok: 1,
         gambar: "gambar/Easter Eggy Box.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-17",
@@ -141,7 +141,7 @@ const daftarProduk = [
         harga: 7000,
         stok: 1,
         gambar: "gambar/Halloween Chick Box.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-18",
@@ -149,7 +149,7 @@ const daftarProduk = [
         harga: 12000,
         stok: 2,
         gambar: "gambar/Hermit Crab Box.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
     {
         id: "prod-19",
@@ -157,7 +157,7 @@ const daftarProduk = [
         harga: 3000,
         stok: 1,
         gambar: "gambar/Scarecrow Box.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
      {
         id: "prod-20",
@@ -165,7 +165,7 @@ const daftarProduk = [
         harga: 5000,
         stok: 1,
         gambar: "gambar/Dapper Friend Carrier.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
      {
         id: "prod-21",
@@ -173,6 +173,6 @@ const daftarProduk = [
         harga: 5000,
         stok: 1,
         gambar: "gambar/Canine Cruiser.png",
-        placeholder: "masukkan username roblox"
+        placeholder: "masukkan user roblox"
     },
 ];
