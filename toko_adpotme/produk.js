@@ -182,5 +182,45 @@ const daftarProduk = [
         stok: 1,
         gambar: "gambar/Screenshot_20260518-114217~4.png",
         placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-23",
+        nama: "angelfish N",
+        harga: 7000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~6.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-24",
+        nama: "garden snake N",
+        harga: 3000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~7.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-25",
+        nama: "frankenfeline N",
+        harga: 4000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~11.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-26",
+        nama: "striped eggy N",
+        harga: 10000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~9.png",
+        placeholder: "masukkan user Roblox"
+    },
+    {
+        id: "prod-27",
+        nama: "cat hood",
+        harga: 2000,
+        stok: 1,
+        gambar: "gambar/Screenshot_20260518-114217~11.png",
+        placeholder: "masukkan user Roblox"
     }
 ];
