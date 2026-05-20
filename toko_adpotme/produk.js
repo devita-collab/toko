@@ -18,7 +18,7 @@ const daftarProduk = [
     {
         id: "prod-3",
         nama: "blue whale N",
-        harga: 15000,
+        harga: 7000,
         stok: 1,
         gambar: "gambar/blue_whale.png",
         placeholder: "Masukkan user roblox"
@@ -26,7 +26,7 @@ const daftarProduk = [
     {
         id: "prod-4",
         nama: "cold cube N",
-        harga: 10000,
+        harga: 6000,
         stok: 1,
         gambar: "gambar/cold_cube.png",
         placeholder: "Masukkan user roblox"
@@ -34,7 +34,7 @@ const daftarProduk = [
     {
         id: "prod-4",
         nama: "scarecrow horse N",
-        harga: 10000,
+        harga: 6000,
         stok: 1,
         gambar: "gambar/scarecrow_horse.png",
         placeholder: "masukkan user roblox"
@@ -50,7 +50,7 @@ const daftarProduk = [
     {
         id: "prod-6",
         nama: "Velociraptor N",
-        harga: 7000,
+        harga: 5000,
         stok: 1,
         gambar: "gambar/Velociraptor.png",
         placeholder: "masukkan user roblox"
@@ -58,7 +58,7 @@ const daftarProduk = [
     {
         id: "prod-7",
         nama: "pangolin N",
-        harga: 8000,
+        harga: 5000,
         stok: 1,
         gambar: "gambar/pangolin.png",
         placeholder: "masukkan user roblox"
@@ -66,7 +66,7 @@ const daftarProduk = [
     {
         id: "prod-8",
         nama: "ankylosaurus N",
-        harga: 7000,
+        harga: 5000,
         stok: 1,
         gambar: "gambar/ankylosaurus.png",
         placeholder: "masukkan user roblox"
@@ -74,7 +74,7 @@ const daftarProduk = [
     {
         id: "prod-9",
         nama: "ocelot N",
-        harga: 7000,
+        harga: 5000,
         stok: 1,
         gambar: "gambar/ocelot.png",
         placeholder: "masukkan user roblox"
@@ -98,7 +98,7 @@ const daftarProduk = [
     {
         id: "prod-12",
         nama: "Banded Palm Civet N",
-        harga: 5000,
+        harga: 4000,
         stok: 1,
         gambar: "gambar/Banded Palm Civet.png",
         placeholder: "masukkan user roblox"
@@ -106,7 +106,7 @@ const daftarProduk = [
     {
         id: "prod-13",
         nama: "Eel N",
-        harga: 5000,
+        harga: 4000,
         stok: 1,
         gambar: "gambar/Eel.png",
         placeholder: "masukkan user roblox"
@@ -114,7 +114,7 @@ const daftarProduk = [
     {
         id: "prod-14",
         nama: "Fossa N",
-        harga: 10000,
+        harga: 4000,
         stok: 1,
         gambar: "gambar/Fossa.png",
         placeholder: "masukkan user roblox"
@@ -122,7 +122,7 @@ const daftarProduk = [
     {
         id: "prod-15",
         nama: "Jumping Spider N",
-        harga: 12000,
+        harga: 5000,
         stok: 1,
         gambar: "gambar/Jumping Spider.png",
         placeholder: "masukkan user roblox"
@@ -186,7 +186,7 @@ const daftarProduk = [
     {
         id: "prod-23",
         nama: "angelfish N",
-        harga: 7000,
+        harga:5000,
         stok: 1,
         gambar: "gambar/Screenshot_20260518-114217~6.png",
         placeholder: "masukkan user Roblox"
@@ -210,7 +210,7 @@ const daftarProduk = [
     {
         id: "prod-26",
         nama: "striped eggy N",
-        harga: 10000,
+        harga: 7000,
         stok: 1,
         gambar: "gambar/Screenshot_20260518-114217~9.png",
         placeholder: "masukkan user Roblox"
