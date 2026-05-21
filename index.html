@@ -138,8 +138,8 @@
         
         <div class="kotak-info-toko">
             - Toko dikelola mandiri oleh Admin. Jika lambat merespon, artinya Admin sedang offline/sibuk. Pesananmu PASTI PROSES saat Admin online kembali! 🙏<br>
-            - Silakan isi user Roblox kamu, klik tombol "Beli", lalu pilih mau transaksi lewat "Telegram" atau "Instagram".<br>
-            - di jamin aman terdapat dua metode pembayaran rekber/TF QRIS, jika kalian merasa takut pilih saja rekber.
+            - Klik tombol "Beli" pada item pilihanmu, lalu pilih metode transaksi dan kontak sosial media Admin.<br>
+            - Di jamin aman terdapat dua metode pembayaran rekber/TF QRIS, jika kalian merasa takut pilih saja rekber.
         </div>
     </div>
 
@@ -182,7 +182,6 @@
             nama: "",
             jumlah: 0,
             total: 0,
-            userRoblox: "",
             metodeBayar: ""
         };
         let teksNotaFinal = null;
@@ -207,7 +206,6 @@
                         <div class="nama-game">${item.nama}</div>
                         <div class="harga-game">Rp ${item.harga.toLocaleString('id-ID')}</div>
                         <div class="stok-game">Tersisa: ${item.stok} Pcs</div>
-                        <input type="text" id="${item.id}-user" placeholder="${item.placeholder}">
                         <div class="kolom-qty">
                             <span>Jumlah:</span>
                             <input type="number" id="${item.id}-qty" class="input-qty" value="1" min="1" max="${item.stok}">
@@ -220,7 +218,6 @@
                         <div class="nama-game">${item.nama}</div>
                         <div class="harga-game">Rp ${item.harga.toLocaleString('id-ID')}</div>
                         <div class="stok-game stok-habis">STOK HABIS</div>
-                        <input type="text" placeholder="${item.placeholder}" disabled>
                         <div class="kolom-qty">
                             <span>Jumlah:</span>
                             <input type="number" class="input-qty" value="0" disabled>
@@ -242,15 +239,9 @@
             renderTampilanProduk(hasilPencarian); 
         }
 
-        // TAHAP 1: Mengambil data input pembeli dan memunculkan pop-up pembayaran
+        // TAHAP 1: Mengambil data input jumlah barang dan memunculkan pop-up pembayaran
         function prosesBeli(idBarang, namaProduk, hargaSatuan, batasStok) {
-            let idGame = document.getElementById(`${idBarang}-user`).value;
             let jumlahBeli = parseInt(document.getElementById(`${idBarang}-qty`).value);
-
-            if (idGame === "") {
-                alert("Mohon diisi Username Roblox kamu dulu ya!");
-                return;
-            }
 
             if (isNaN(jumlahBeli) || jumlahBeli < 1) {
                 alert("Jumlah pembelian minimal 1 pcs!");
@@ -266,22 +257,20 @@
             orderData.nama = namaProduk;
             orderData.jumlah = jumlahBeli;
             orderData.total = hargaSatuan * jumlahBeli;
-            orderData.userRoblox = idGame;
 
             // Munculkan Pop-up pilihan pembayaran pertama
             document.getElementById('popup-pembayaran').style.display = 'flex';
         }
 
-        // TAHAP 2: Pembeli memilih metode bayar, lalu kita kunci datanya dan buka pop-up sosmed
+        // TAHAP 2: Pembeli memilih metode bayar, lalu rakit nota dan buka pop-up sosmed
         function pilihMetodeBayar(metode) {
             orderData.metodeBayar = metode;
             
-            // Rakit teks nota pesanan final otomatis
+            // Rakit teks nota pesanan tanpa kolom username
             teksNotaFinal = `Halo Kak! Saya mau order di web jualanmu 👋\n\n` +
                             `📦 Produk: ${orderData.nama}\n` +
                             `🔢 Jumlah: ${orderData.jumlah} Pcs\n` +
                             `💰 Total Harga: Rp ${orderData.total.toLocaleString('id-ID')}\n` +
-                            `👤 User Roblox: ${orderData.userRoblox}\n` +
                             `💳 Metode Bayar: ${orderData.metodeBayar}\n\n` +
                             `Mohon segera diproses ya Admin, terima kasih!`;
 
