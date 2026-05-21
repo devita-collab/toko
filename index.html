@@ -20,107 +20,80 @@
            ==================================================== */
         @media screen and (max-width: 600px) {
             .grid-produk {
-                gap: 10px; /* Jarak antar kotak di HP dipersempit */
-                justify-content: center;
-                padding: 5px;
+                gap: 10px; justify-content: center; padding: 5px;
             }
             .kartu-produk { 
-                width: calc(50% - 10px); /* Ukuran kotak otomatis dibagi 2 pas di HP */
-                padding: 10px; /* Jarak tulisan di dalam kotak dikit dikecilkan */
+                width: calc(50% - 10px); padding: 10px;
             }
-            .foto-game { 
-                height: 100px; /* Foto pet sedikit dikecilkan biar tidak kemakan tinggi */
-            }
-            .nama-game { font-size: 14px; } /* Tulisan nama pet disesuaikan */
-            .harga-game { font-size: 14px; }
-            input, .btn-tunggal { font-size: 12px; padding: 8px 5px; } /* Input & tombol dikecilkan sedikit */
+            .foto-game { height: 100px; }
+            .nama-game, .harga-game { font-size: 14px; }
+            input, .btn-tunggal { font-size: 12px; padding: 8px 5px; }
         }
-        /* ==================================================== */
+        
         body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background: #121214; color: white; margin: 0; padding: 0; padding-bottom: 50px;
+            font-family: 'Segoe UI', Arial, sans-serif; background: #121214; color: white; margin: 0; padding: 0; padding-bottom: 80px;
         }
-        .header-toko {
-            background: #7c3aed; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+        .header-toko { background: #7c3aed; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .header-toko h1 { margin: 0; font-size: 28px; }
         .header-toko p { margin: 5px 0 0 0; opacity: 0.8; }
         
-        /* GAYA BANNER PROMO & INFORMASI TOKO */
         .banner-promo {
-            background: linear-gradient(45deg, #6d28d9, #4c1d95); 
-            margin: 20px auto; 
-            max-width: 1000px; 
-            padding: 30px 20px; 
-            border-radius: 12px; 
-            text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: linear-gradient(45deg, #6d28d9, #4c1d95); margin: 20px auto; max-width: 1000px; padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .banner-promo h2 { margin: 0 0 10px 0; font-size: 24px; }
         .banner-promo p { margin: 0; font-size: 16px; opacity: 0.9; }
-        
         .kotak-info-toko {
-            background: rgba(0,0,0,0.5); 
-            padding: 15px; 
-            border-radius: 8px; 
-            border: 1px solid #7c3aed; 
-            max-width: 700px; 
-            margin: 15px auto 0 auto; 
-            text-align: left; 
-            font-size: 14px; 
-            line-height: 1.6;
+            background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid #7c3aed; max-width: 700px; margin: 15px auto 0 auto; text-align: left; font-size: 14px; line-height: 1.6;
         }
-        /* GAYA UNTUK KOLOM PENCARIAN */
-        .wadah-pencarian {
-            max-width: 1000px; margin: 30px auto 10px auto; padding: 0 10px; box-sizing: border-box;
-        }
+        
+        .wadah-pencarian { max-width: 1000px; margin: 30px auto 10px auto; padding: 0 10px; box-sizing: border-box; }
         .input-cari {
-            width: 100%; padding: 12px 20px; font-size: 16px; border-radius: 30px; border: 2px solid #2e2e33; background: #1a1a1e; color: white; box-sizing: border-box; text-align: left; transition: all 0.3s ease;
+            width: 100%; padding: 12px 20px; font-size: 16px; border-radius: 30px; border: 2px solid #2e2e33; background: #1a1a1e; color: white; box-sizing: border-box; transition: all 0.3s ease;
         }
-        .input-cari:focus {
-            border-color: #7c3aed; outline: none; box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
-        }
-
-        .judul-kategori {
-            text-align: left; max-width: 1000px; margin: 30px auto 10px auto; padding-left: 10px; border-left: 5px solid #7c3aed; font-size: 20px;
-        }
+        .input-cari:focus { border-color: #7c3aed; outline: none; box-shadow: 0 0 10px rgba(124, 58, 237, 0.5); }
+        .judul-kategori { text-align: left; max-width: 1000px; margin: 30px auto 10px auto; padding-left: 10px; border-left: 5px solid #7c3aed; font-size: 20px; }
         .stok-game { font-size: 13px; color: #a1a1aa; margin-bottom: 10px; }
         .stok-habis { color: #ef4444; font-weight: bold; }
-        input {
-            padding: 8px; width: 85%; margin-bottom: 8px; border-radius: 6px; border: 1px solid #444; background: #26262b; color: white; text-align: center;
-        }
-        .kolom-qty { display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 12px; font-size: 14px; }
-        .input-qty { width: 50px; margin-bottom: 0; padding: 5px; }
         
-        /* TOMBOL BELI TUNGGAL DI KARTU PRODUK */
+        .kolom-qty { display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 12px; font-size: 14px; }
+        .input-qty { width: 50px; padding: 5px; background: #26262b; color: white; border: 1px solid #444; border-radius: 6px; text-align: center; }
+        
         .btn-tunggal { 
             background: #7c3aed; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 6px; width: 95%; font-size: 14px;
         }
         .btn-tunggal:hover { background: #6d28d9; }
         button:disabled { background: #4b5563 !important; color: #9ca3af !important; cursor: not-allowed; }
         
-        /* KOTAK POP-UP PILIHAN (MELAYANG DI TENGAH LAYAR) */
+        /* TOMBOL KERANJANG MELAYANG (FLOATING BAR) */
+        .bar-keranjang {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1e; border-top: 2px solid #7c3aed; padding: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); box-sizing: border-box; z-index: 999; display: none;
+        }
+        .info-keranjang { font-size: 15px; font-weight: bold; }
+        .btn-checkout { background: #22c55e; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 20px; cursor: pointer; font-size: 14px; }
+        .btn-checkout:hover { background: #16a34a; }
+
+        /* LIST ITEM DI DALAM KOTAK CHECKOUT */
+        .list-checkout-item { text-align: left; background: #26262b; padding: 10px; border-radius: 6px; margin-bottom: 15px; max-height: 120px; overflow-y: auto; font-size: 13px; }
+        .checkout-baris { display: flex; justify-content: space-between; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px dashed #444; }
+
+        /* KOTAK POP-UP OVERLAY */
         .overlay-popup {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 9999;
         }
         .kotak-popup {
-            background: #1a1a1e; padding: 25px; border-radius: 12px; border: 1px solid #2e2e33; text-align: center; width: 310px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #1a1a1e; padding: 25px; border-radius: 12px; border: 1px solid #2e2e33; text-align: center; width: 320px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .judul-popup { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
-        .btn-pilihan {
-            display: block; width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; color: white;
-        }
-        /* Tombol Pembayaran */
+        .btn-pilihan { display: block; width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; color: white; }
+        
         .btn-popup-qris { background: #22c55e; }
         .btn-popup-qris:hover { background: #16a34a; }
         .btn-popup-rekber { background: #eab308; color: #000; }
         .btn-popup-rekber:hover { background: #ca8a04; }
-        /* Tombol Sosmed */
         .btn-popup-tele { background: #0284c7; }
         .btn-popup-tele:hover { background: #0369a1; }
         .btn-popup-ig { background: #db2777; }
         .btn-popup-ig:hover { background: #be185d; }
-        
         .btn-popup-batal { background: #4b5563; font-size: 12px; padding: 8px; margin-top: 15px; opacity: 0.7; }
         .btn-popup-batal:hover { opacity: 1; }
     </style>
@@ -135,10 +108,8 @@
     <div class="banner-promo">
         <h2>selamat datang!</h2>
         <p>pets lucu adoptme yang bisa kalian dapatkan di toko kami</p>
-        
         <div class="kotak-info-toko">
-            - Toko dikelola mandiri oleh Admin. Jika lambat merespon, artinya Admin sedang offline/sibuk. Pesananmu PASTI PROSES saat Admin online kembali! 🙏<br>
-            - Klik tombol "Beli" pada item pilihanmu, lalu pilih metode transaksi dan kontak sosial media Admin.<br>
+            - Tambahkan pet ke keranjang sebanyak yang kamu mau, lalu lakukan checkout sekaligus! 🛒<br>
             - Di jamin aman terdapat dua metode pembayaran rekber/TF QRIS, jika kalian merasa takut pilih saja rekber.
         </div>
     </div>
@@ -148,13 +119,20 @@
     </div>
 
     <div class="judul-kategori">pets & item</div>
-    
     <div class="grid-produk" id="tempat-produk"></div>
+
+    <div id="bar-keranjang-melayang" class="bar-keranjang">
+        <div class="info-keranjang" id="teks-total-keranjang">🛒 0 Item | Total: Rp 0</div>
+        <button class="btn-checkout" onclick="bukaPopupPembayaran()">Lanjut Checkout ➡️</button>
+    </div>
 
     <div id="popup-pembayaran" class="overlay-popup">
         <div class="kotak-popup">
-            <div class="judul-popup">💳 Pilih Metode Pembayaran</div>
-            <p style="font-size: 13px; color: #a1a1aa; margin-top: -5px; margin-bottom: 20px;">Toko kami 100% amanah. Silakan pilih metode yang membuat kamu paling nyaman:</p>
+            <div class="judul-popup">💳 Ringkasan & Pembayaran</div>
+            
+            <div class="list-checkout-item" id="isi-ringkasan-belanja"></div>
+
+            <p style="font-size: 13px; color: #a1a1aa; margin-bottom: 15px;">Silakan pilih metode transaksi aman kamu:</p>
             <button class="btn-pilihan btn-popup-qris" onclick="pilihMetodeBayar('TF LANGSUNG (QRIS)')">⚡ Transfer QRIS (Proses Cepat)</button>
             <button class="btn-pilihan btn-popup-rekber" onclick="pilihMetodeBayar('REKBER / MIDDLEMAN')">🤝 Pakai Rekber (Lebih Aman)</button>
             <button class="btn-popup-batal btn-pilihan" onclick="tutupSemuaPopup()">Batal</button>
@@ -164,7 +142,7 @@
     <div id="popup-sosmed" class="overlay-popup">
         <div class="kotak-popup">
             <div class="judul-popup">📱 Hubungi Admin Toko</div>
-            <p style="font-size: 13px; color: #a1a1aa; margin-top: -5px; margin-bottom: 20px;">Kirimkan nota otomatis orderanmu ke salah satu kontak Admin di bawah ini:</p>
+            <p style="font-size: 13px; color: #a1a1aa; margin-top: -5px; margin-bottom: 20px;">Kirimkan nota gabungan belanjamu ke kontak resmi Admin:</p>
             <button class="btn-pilihan btn-popup-tele" onclick="alihkanKeSosmed('telegram')">📱 Kirim via Telegram</button>
             <button class="btn-pilihan btn-popup-ig" onclick="alihkanKeSosmed('instagram')">📸 Kirim via Instagram</button>
             <button class="btn-popup-batal btn-pilihan" onclick="tutupSemuaPopup()">Batal</button>
@@ -177,20 +155,15 @@
         let usernameTelegramToko = "juli111uwu"; 
         let usernameInstagramToko = "meshoppetadopt"; 
 
-        // Penampung data orderan sementara
-        let orderData = {
-            nama: "",
-            jumlah: 0,
-            total: 0,
-            metodeBayar: ""
-        };
+        // Memory penyimpanan daftar keranjang belanjaan
+        let keranjangBelanja = [];
+        let metodeBayarTerpilih = "";
         let teksNotaFinal = null;
 
         const kontainerProduk = document.getElementById('tempat-produk');
         
         function renderTampilanProduk(listProduk) {
             kontainerProduk.innerHTML = ""; 
-            
             if (listProduk.length === 0) {
                 kontainerProduk.innerHTML = `<p style="text-align:center; width:100%; color:#a1a1aa; padding:20px;">Pet tidak ditemukan... 😢</p>`;
                 return;
@@ -210,7 +183,7 @@
                             <span>Jumlah:</span>
                             <input type="number" id="${item.id}-qty" class="input-qty" value="1" min="1" max="${item.stok}">
                         </div>
-                        <button class="btn-tunggal" onclick="prosesBeli('${item.id}', '${item.nama}', ${item.harga}, ${item.stok})">Beli</button>
+                        <button class="btn-tunggal" onclick="tambahKeKeranjang('${item.id}', '${item.nama}', ${item.harga})">+ Keranjang</button>
                     `;
                 } else {
                     elemenProduk.innerHTML = `
@@ -233,75 +206,174 @@
 
         function filterProduk() {
             let kataKunci = document.getElementById('kolom-cari').value.toLowerCase();
-            let hasilPencarian = daftarProduk.filter(item => {
-                return item.nama.toLowerCase().includes(kataKunci);
-            });
+            let hasilPencarian = daftarProduk.filter(item => item.nama.toLowerCase().includes(kataKunci));
             renderTampilanProduk(hasilPencarian); 
         }
 
-        // TAHAP 1: Mengambil data input jumlah barang dan memunculkan pop-up pembayaran
-        function prosesBeli(idBarang, namaProduk, hargaSatuan, batasStok) {
+        // AMBIL DATA INPUT MASUKKAN KE DATA KERANJANG
+        function tambahKeKeranjang(idBarang, namaProduk, hargaSatuan) {
             let jumlahBeli = parseInt(document.getElementById(`${idBarang}-qty`).value);
+            let produkAsli = daftarProduk.find(p => p.id === idBarang);
+            
+            if (isNaN(jumlahBeli) || jumlahBeli < 1) { alert("Minimal pembelian 1 pcs!"); return; }
+            if (jumlahBeli > produkAsli.stok) { alert(`Gagal! Stok tersisa cuma ${produkAsli.stok} pcs.`); return; }
 
-            if (isNaN(jumlahBeli) || jumlahBeli < 1) {
-                alert("Jumlah pembelian minimal 1 pcs!");
+            let indexData = keranjangBelanja.findIndex(item => item.id === idBarang);
+            if (indexData !== -1) {
+                keranjangBelanja[indexData].jumlah = jumlahBeli;
+            } else {
+                keranjangBelanja.push({ id: idBarang, nama: namaProduk, harga: hargaSatuan, jumlah: jumlahBeli });
+            }
+
+            updateTampilanBarKeranjang();
+            alert(`✅ ${namaProduk} (${jumlahBeli} Pcs) berhasil masuk keranjang!`);
+        }
+
+        // UPDATE ANGKA DI BAR BAWAH MELAYANG
+        function updateTampilanBarKeranjang() {
+            const barMelayang = document.getElementById('bar-keranjang-melayang');
+            const teksTotal = document.getElementById('teks-total-keranjang');
+
+            if (keranjangBelanja.length === 0) {
+                barMelayang.style.display = 'none';
                 return;
             }
 
-            if (jumlahBeli > batasStok) {
-                alert(`Maaf, stok tidak mencukupi! Maksimal pembelian adalah ${batasStok} pcs.`);
-                return;
+            let totalBarang = 0;
+            let totalHargaSemua = 0;
+
+            keranjangBelanja.forEach(item => {
+                totalBarang += item.jumlah;
+                totalHargaSemua += (item.harga * item.jumlah);
+            });
+
+            teksTotal.innerText = `🛒 ${totalBarang} Item di Keranjang | Total: Rp ${totalHargaSemua.toLocaleString('id-ID')}`;
+            barMelayang.style.display = 'flex';
+        }
+
+        // FUNGSI BARU: UNTUK MENGHAPUS ITEM YANG SALAH PENCET DI DALAM POP-UP
+        function hapusItemDariKeranjang(idBarang) {
+            let indexData = keranjangBelanja.findIndex(item => item.id === idBarang);
+            if (indexData !== -1) {
+                let namaBarang = keranjangBelanja[indexData].nama;
+                keranjangBelanja.splice(indexData, 1); // Hapus item dari memory array
+                
+                updateTampilanBarKeranjang(); // Update bar ungu di bawah
+                
+                // Jika keranjang jadi kosong setelah dihapus, tutup pop-up otomatis
+                if (keranjangBelanja.length === 0) {
+                    alert(`Item "${namaBarang}" dihapus. Keranjang kamu sekarang kosong.`);
+                    tutupSemuaPopup();
+                } else {
+                    // Jika masih ada item lain, gambar ulang rincian pop-up-nya
+                    bukaPopupPembayaran();
+                }
+            }
+        }
+
+        // TAHAP CHECKOUT & VALIDASI STOK
+        function bukaPopupPembayaran() {
+            let isiRingkasanHTML = "";
+            let itemDihapusAtauKurang = false;
+
+            for (let i = keranjangBelanja.length - 1; i >= 0; i--) {
+                let item = keranjangBelanja[i];
+                let produkAsli = daftarProduk.find(p => p.id === item.id);
+
+                if (!produkAsli || produkAsli.stok <= 0) {
+                    alert(`🚨 Maaf! Item "${item.nama}" baru saja HABIS. Otomatis dihapus dari keranjang.`);
+                    keranjangBelanja.splice(i, 1);
+                    itemDihapusAtauKurang = true;
+                }
+                else if (item.jumlah > produkAsli.stok) {
+                    alert(`⚠️ Perhatian! Stok "${item.nama}" tersisa tinggal ${produkAsli.stok} pcs.`);
+                    item.jumlah = produkAsli.stok;
+                    itemDihapusAtauKurang = true;
+                }
             }
 
-            // Simpan data ke objek sementara
-            orderData.nama = namaProduk;
-            orderData.jumlah = jumlahBeli;
-            orderData.total = hargaSatuan * jumlahBeli;
+            if (itemDihapusAtauKurang) {
+                updateTampilanBarKeranjang();
+                if (keranjangBelanja.length === 0) return; 
+            }
 
-            // Munculkan Pop-up pilihan pembayaran pertama
+            // MODIFIKASI: Ditambahkan tombol silang (❌) merah di sebelah kiri nama item
+            let grandTotal = 0;
+            keranjangBelanja.forEach(item => {
+                let subTotal = item.harga * item.jumlah;
+                grandTotal += subTotal;
+                isiRingkasanHTML += `
+                    <div class="checkout-baris">
+                        <span>
+                            <span style="color:#ef4444; cursor:pointer; font-weight:bold; margin-right:8px;" onclick="hapusItemDariKeranjang('${item.id}')" title="Hapus item">❌</span>
+                            ${item.nama} (${item.jumlah}x)
+                        </span>
+                        <span>Rp ${subTotal.toLocaleString('id-ID')}</span>
+                    </div>`;
+            });
+            isiRingkasanHTML += `
+                <div class="checkout-baris" style="border-top: 1px solid #7c3aed; font-weight:bold; margin-top:10px; padding-top:5px; color:#a855f7;">
+                    <span>GRAND TOTAL:</span>
+                    <span>Rp ${grandTotal.toLocaleString('id-ID')}</span>
+                </div>`;
+
+            document.getElementById('isi-ringkasan-belanja').innerHTML = isiRingkasanHTML;
             document.getElementById('popup-pembayaran').style.display = 'flex';
         }
 
-        // TAHAP 2: Pembeli memilih metode bayar, lalu rakit nota dan buka pop-up sosmed
+        // TAHAP PILIH BAYAR & RAKIT NOTA
         function pilihMetodeBayar(metode) {
-            orderData.metodeBayar = metode;
-            
-            // Rakit teks nota pesanan tanpa kolom username
-            teksNotaFinal = `Halo Kak! Saya mau order di web jualanmu 👋\n\n` +
-                            `📦 Produk: ${orderData.nama}\n` +
-                            `🔢 Jumlah: ${orderData.jumlah} Pcs\n` +
-                            `💰 Total Harga: Rp ${orderData.total.toLocaleString('id-ID')}\n` +
-                            `💳 Metode Bayar: ${orderData.metodeBayar}\n\n` +
-                            `Mohon segera diproses ya Admin, terima kasih!`;
+            metodeBayarTerpilih = metode;
+            let isiDaftarBelanjaanTeks = "";
+            let totalAkhirSeluruhnya = 0;
 
-            // Tutup pop-up pembayaran, langsung buka pop-up sosmed admin
+            keranjangBelanja.forEach((item, index) => {
+                let subTotal = item.harga * item.jumlah;
+                totalAkhirSeluruhnya += subTotal;
+                isiDaftarBelanjaanTeks += `${index + 1}. 📦 ${item.nama} x${item.jumlah} Pcs -> (Rp ${subTotal.toLocaleString('id-ID')})\n`;
+            });
+
+            teksNotaFinal = `Halo Kak! Saya mau borong belanjaan di web jualanmu 👋\n\n` +
+                            `🛒 DAFTAR KERANJANG BELANJA:\n` +
+                            `----------------------------------------\n` +
+                            `${isiDaftarBelanjaanTeks}` +
+                            `----------------------------------------\n` +
+                            `💰 TOTAL HARGA: Rp ${totalAkhirSeluruhnya.toLocaleString('id-ID')}\n` +
+                            `💳 METODE BAYAR: ${metodeBayarTerpilih}\n\n` +
+                            `Mohon segera dicek & diproses ya Admin, terima kasih!`;
+
             document.getElementById('popup-pembayaran').style.display = 'none';
             document.getElementById('popup-sosmed').style.display = 'flex';
         }
 
-        // TAHAP 3: Pengalihan sosmed akhir
+        // TAHAP KIRIM KE MEDIA SOSIAL
         function alihkanKeSosmed(metode) {
             if (!teksNotaFinal) return;
 
             if (metode === 'telegram') {
                 let pesanFormatUrl = encodeURIComponent(teksNotaFinal);
-                let linkTelegramToko = `https://t.me/${usernameTelegramToko}?text=${pesanFormatUrl}`;
-                window.open(linkTelegramToko, '_blank');
-                tutupSemuaPopup();
+                window.open(`https://t.me/${usernameTelegramToko}?text=${pesanFormatUrl}`, '_blank');
+                bersihkanKeranjangDanTutup();
 
             } else if (metode === 'instagram') {
                 navigator.clipboard.writeText(teksNotaFinal).then(() => {
-                    alert("Format orderan BERHASIL DISALIN!\n\nNanti di DM Instagram, kamu tinggal klik tahan lalu pilih 'TEMPEL / PASTE' ya.");
-                    let linkInstagramToko = `https://ig.me/m/${usernameInstagramToko}`;
-                    window.open(linkInstagramToko, '_blank');
-                    tutupSemuaPopup();
+                    alert("Format orderan borongan BERHASIL DISALIN!\n\nNanti di DM Instagram, tinggal klik tahan lalu pilih 'TEMPEL / PASTE'.");
+                    window.open(`https://ig.me/m/${usernameInstagramToko}`, '_blank');
+                    bersihkanKeranjangDanTutup();
                 }).catch(err => {
                     alert("Gagal menyalin otomatis. Silakan hubungi IG: @" + usernameInstagramToko);
                 });
             }
         }
 
-        function tutupSemuaPopup() {
+        function bersihkanKeranjangDanTutup() {
+            keranjangBelanja = []; 
+            updateTampilanBarKeranjang();
+            tutupAllModal();
+        }
+
+        function tutupSemuaPopup() { tutupAllModal(); }
+        function tutupAllModal() {
             document.getElementById('popup-pembayaran').style.display = 'none';
             document.getElementById('popup-sosmed').style.display = 'none';
             teksNotaFinal = null;
