@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko pets Game Online</title>
     <style>
+           /* DESIGN TOMBOL KATEGORI PILIHAN */
+.wadah-tab-kategori {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px auto 25px auto;
+    max-width: 1000px;
+    padding: 0 10px;
+}
+.btn-tab {
+    background: #1a1a1e;
+    color: #a1a1aa;
+    border: 2px solid #2e2e33;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-tab:hover {
+    border-color: #7c3aed;
+    color: white;
+}
+.btn-tab.aktif {
+    background: #7c3aed;
+    color: white;
+    border-color: #7c3aed;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
         .grid-produk {
             display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; padding: 10px;
         }
@@ -115,6 +148,10 @@
     </div>
 
     <div class="wadah-pencarian">
+        <div class="wadah-tab-kategori">
+        <button id="tab-pet" class="btn-tab" onclick="gantiKategori('pet')">🐾 Pet</button>
+        <button id="tab-item" class="btn-tab" onclick="gantiKategori('item')">📦 Item</button>
+    </div>
         <input type="text" id="kolom-cari" class="input-cari" placeholder="🔍 Cari pet favoritmu di sini..." onkeyup="filterProduk()">
     </div>
 
@@ -149,9 +186,13 @@
         </div>
     </div>
 
-    <script src="produk.js"></script>
+    <script src="produk-pet.js"></script>
+    <script src="produk-item.js"></script>
 
     <script>
+       // Menggabungkan data untuk keperluan pencarian & validasi keranjang
+        const daftarProduk = [...produkPet, ...produkItem];
+
         let usernameTelegramToko = "juli111uwu"; 
         let usernameInstagramToko = "meshoppetadopt"; 
 
@@ -159,13 +200,46 @@
         let keranjangBelanja = [];
         let metodeBayarTerpilih = "";
         let teksNotaFinal = null;
+        
+        // Di awal statusnya "normal" (menampilkan semua tanpa tombol menyala)
+        let kategoriAktif = "normal"; 
 
         const kontainerProduk = document.getElementById('tempat-produk');
+        const elemenJudulKategori = document.querySelector('.judul-kategori');
         
+        // FUNGSI UTAMA UNTUK FILTER KLIK TOMBOL KATEGORI
+        function gantiKategori(pilihan) {
+            if (kategoriAktif === pilihan) {
+                kategoriAktif = "normal";
+                document.getElementById('tab-pet').classList.remove('aktif');
+                document.getElementById('tab-item').classList.remove('aktif');
+                elemenJudulKategori.innerText = "⭐ Semua Produk";
+                renderTampilanProduk(daftarProduk);
+                return;
+            }
+
+            kategoriAktif = pilihan;
+            
+            document.getElementById('tab-pet').classList.remove('aktif');
+            document.getElementById('tab-item').classList.remove('aktif');
+            
+            if (pilihan === 'pet') {
+                document.getElementById('tab-pet').classList.add('aktif');
+                elemenJudulKategori.innerText = "🐾 Daftar Pets Adopt Me";
+                renderTampilanProduk(produkPet);
+            } else if (pilihan === 'item') {
+                document.getElementById('tab-item').classList.add('aktif');
+                elemenJudulKategori.innerText = "📦 Daftar Box & Items";
+                renderTampilanProduk(produkItem);
+            }
+        }
+
+        // FUNGSI RENDER DISPLAY PRODUK
         function renderTampilanProduk(listProduk) {
             kontainerProduk.innerHTML = ""; 
+
             if (listProduk.length === 0) {
-                kontainerProduk.innerHTML = `<p style="text-align:center; width:100%; color:#a1a1aa; padding:20px;">Pet tidak ditemukan... 😢</p>`;
+                kontainerProduk.innerHTML = `<p style="text-align:center; width:100%; color:#a1a1aa; padding:20px;">Barang tidak ditemukan... 😢</p>`;
                 return;
             }
 
@@ -202,15 +276,22 @@
             });
         }
 
+        // LANGSUNG MUNCULKAN SEMUA DI AWAL MASUK
+        elemenJudulKategori.innerText = "⭐ Semua Produk";
         renderTampilanProduk(daftarProduk);
 
+        // FUNGSI SEARCH
         function filterProduk() {
             let kataKunci = document.getElementById('kolom-cari').value.toLowerCase();
-            let hasilPencarian = daftarProduk.filter(item => item.nama.toLowerCase().includes(kataKunci));
+            let dataSumber = daftarProduk;
+            if (kategoriAktif === 'pet') dataSumber = produkPet;
+            if (kategoriAktif === 'item') dataSumber = produkItem;
+
+            let hasilPencarian = dataSumber.filter(item => item.nama.toLowerCase().includes(kataKunci));
             renderTampilanProduk(hasilPencarian); 
         }
 
-        // AMBIL DATA INPUT MASUKKAN KE DATA KERANJANG
+        // FUNGSI LOGIKA KERANJANG BELANJA (PASTIKAN KODE INI ADA)
         function tambahKeKeranjang(idBarang, namaProduk, hargaSatuan) {
             let jumlahBeli = parseInt(document.getElementById(`${idBarang}-qty`).value);
             let produkAsli = daftarProduk.find(p => p.id === idBarang);
@@ -229,7 +310,6 @@
             alert(`✅ ${namaProduk} (${jumlahBeli} Pcs) berhasil masuk keranjang!`);
         }
 
-        // UPDATE ANGKA DI BAR BAWAH MELAYANG
         function updateTampilanBarKeranjang() {
             const barMelayang = document.getElementById('bar-keranjang-melayang');
             const teksTotal = document.getElementById('teks-total-keranjang');
@@ -251,27 +331,21 @@
             barMelayang.style.display = 'flex';
         }
 
-        // FUNGSI BARU: UNTUK MENGHAPUS ITEM YANG SALAH PENCET DI DALAM POP-UP
         function hapusItemDariKeranjang(idBarang) {
             let indexData = keranjangBelanja.findIndex(item => item.id === idBarang);
             if (indexData !== -1) {
                 let namaBarang = keranjangBelanja[indexData].nama;
-                keranjangBelanja.splice(indexData, 1); // Hapus item dari memory array
-                
-                updateTampilanBarKeranjang(); // Update bar ungu di bawah
-                
-                // Jika keranjang jadi kosong setelah dihapus, tutup pop-up otomatis
+                keranjangBelanja.splice(indexData, 1);
+                updateTampilanBarKeranjang();
                 if (keranjangBelanja.length === 0) {
-                    alert(`Item "${namaBarang}" dihapus. Keranjang kamu sekarang kosong.`);
+                    alert(`Item "${namaBarang}" dihapus. Keranjang kosong.`);
                     tutupSemuaPopup();
                 } else {
-                    // Jika masih ada item lain, gambar ulang rincian pop-up-nya
                     bukaPopupPembayaran();
                 }
             }
         }
 
-        // TAHAP CHECKOUT & VALIDASI STOK
         function bukaPopupPembayaran() {
             let isiRingkasanHTML = "";
             let itemDihapusAtauKurang = false;
@@ -297,7 +371,6 @@
                 if (keranjangBelanja.length === 0) return; 
             }
 
-            // MODIFIKASI: Ditambahkan tombol silang (❌) merah di sebelah kiri nama item
             let grandTotal = 0;
             keranjangBelanja.forEach(item => {
                 let subTotal = item.harga * item.jumlah;
@@ -305,7 +378,7 @@
                 isiRingkasanHTML += `
                     <div class="checkout-baris">
                         <span>
-                            <span style="color:#ef4444; cursor:pointer; font-weight:bold; margin-right:8px;" onclick="hapusItemDariKeranjang('${item.id}')" title="Hapus item">❌</span>
+                            <span style="color:#ef4444; cursor:pointer; font-weight:bold; margin-right:8px;" onclick="hapusItemDariKeranjang('${item.id}')">❌</span>
                             ${item.nama} (${item.jumlah}x)
                         </span>
                         <span>Rp ${subTotal.toLocaleString('id-ID')}</span>
@@ -321,7 +394,6 @@
             document.getElementById('popup-pembayaran').style.display = 'flex';
         }
 
-        // TAHAP PILIH BAYAR & RAKIT NOTA
         function pilihMetodeBayar(metode) {
             metodeBayarTerpilih = metode;
             let isiDaftarBelanjaanTeks = "";
@@ -346,7 +418,6 @@
             document.getElementById('popup-sosmed').style.display = 'flex';
         }
 
-        // TAHAP KIRIM KE MEDIA SOSIAL
         function alihkanKeSosmed(metode) {
             if (!teksNotaFinal) return;
 
@@ -354,14 +425,13 @@
                 let pesanFormatUrl = encodeURIComponent(teksNotaFinal);
                 window.open(`https://t.me/${usernameTelegramToko}?text=${pesanFormatUrl}`, '_blank');
                 bersihkanKeranjangDanTutup();
-
             } else if (metode === 'instagram') {
                 navigator.clipboard.writeText(teksNotaFinal).then(() => {
                     alert("Format orderan borongan BERHASIL DISALIN!\n\nNanti di DM Instagram, tinggal klik tahan lalu pilih 'TEMPEL / PASTE'.");
                     window.open(`https://ig.me/m/${usernameInstagramToko}`, '_blank');
                     bersihkanKeranjangDanTutup();
                 }).catch(err => {
-                    alert("Gagal menyalin otomatis. Silakan hubungi IG: @" + usernameInstagramToko);
+                    alert("Gagal menyalin otomatis.");
                 });
             }
         }
